@@ -26,7 +26,6 @@ Route::resource('/contact', ContactController::class);
 Route::resource('/services', ServiceController::class);
 // Route::posy('/addCaroussel', HeaderController::class);
 
-Route::post('/addCaroussel',[HeaderController::class, 'create']);
 
 Auth::routes();
 

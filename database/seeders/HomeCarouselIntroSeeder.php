@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CarousselSeeder extends Seeder
+class HomeCarouselIntroSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,19 +14,10 @@ class CarousselSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('caroussels')->insert([
-            [ 
-                'img'=>'01.jpg'
-
-            ],
-        // DB::table('caroussels')->insert([
-
+        DB::table('home_carousel_intros')->insert([
             [
-                'img'=>'02.jpg'
-
+                'img'=>'img/big-logo.png'
             ]
-            
-
         ]);
     }
 }

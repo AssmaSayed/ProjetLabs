@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCarousselsTable extends Migration
+class CreateHomeTestimonialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,16 @@ class CreateCarousselsTable extends Migration
      */
     public function up()
     {
-        Schema::create('caroussels', function (Blueprint $table) {
+        Schema::create('home_testimonials', function (Blueprint $table) {
             $table->id();
+            $table->string('text');
             $table->string('img');
+            $table->string('name');
+            $table->string('role');
+
+
+
+
             $table->timestamps();
         });
     }
@@ -27,6 +34,6 @@ class CreateCarousselsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('caroussels');
+        Schema::dropIfExists('home_testimonials');
     }
 }
