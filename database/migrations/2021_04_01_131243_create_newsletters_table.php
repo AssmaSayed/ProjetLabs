@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHomeTitreSpansTable extends Migration
+class CreateNewslettersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateHomeTitreSpansTable extends Migration
      */
     public function up()
     {
-        Schema::create('home_titre_spans', function (Blueprint $table) {
+        Schema::create('newsletters', function (Blueprint $table) {
             $table->id();
-            $table->string('titre1');
-            $table->string('titre2');
-            $table->string('span');
+            $table->string('titre');
+            $table->string('button');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateHomeTitreSpansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('home_titre_spans');
+        Schema::dropIfExists('newsletters');
     }
 }

@@ -15,8 +15,8 @@ class CreateHomeAboutContantsTable extends Migration
     {
         Schema::create('home_about_contants', function (Blueprint $table) {
             $table->id();
-            $table->string('textGauche');
-            $table->string('textDroite');
+            $table->text('textGauche');
+            $table->text('textDroite');
             $table->string('button');
             $table->string('img');
             $table->string('href');

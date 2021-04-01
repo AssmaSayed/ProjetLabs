@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class HomeTitreSpanSeeder extends Seeder
+class ServicesTitreSpanSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,12 +14,7 @@ class HomeTitreSpanSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('home_titre_spans')->insert([
-            [
-                'titre1'=>'get in ',
-                'titre2'=>'and discover the world',
-                'span'=>'the lab'
-            ],
+        DB::table('services_titre_spans')->insert([
             [
                 'titre1'=>'get in ',
                 'titre2'=>'and see the services',
@@ -27,11 +22,12 @@ class HomeTitreSpanSeeder extends Seeder
             ],
             [
                 'titre1'=>'get in ',
-                'titre2'=>'and meet the team',
+                'titre2'=>'and discover the world',
                 'span'=>'the lab'
             ],
 
 
         ]);
+
     }
 }

@@ -18,11 +18,6 @@ class CreateHomeServicesTable extends Migration
             $table->string('icon');
             $table->string('services');
             $table->string('text');
-
-
-
-
-
             $table->timestamps();
         });
     }

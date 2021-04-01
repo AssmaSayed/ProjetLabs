@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class HomeCarouselIntroSeeder extends Seeder
+class HomeTitreSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,10 +14,10 @@ class HomeCarouselIntroSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('home_carousel_intros')->insert([
+        DB::table('home_titres')->insert([
+            [
+                'titre'=>'What our clients say'
 
-            [   'text'=>'Get your freebie template now!',
-                'img'=>'img/big-logo.png'
             ]
         ]);
     }

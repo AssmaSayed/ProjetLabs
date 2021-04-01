@@ -20,8 +20,7 @@ class HomeAboutContantSeeder extends Seeder
                 'textDroite'=>'Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.',
                 'button'=>'Browse',
                 'img'=>'img/video.jpg',
-                'href'=>'https://www.youtube.com/watch?v=JgHfx2v9zOU'
-
+                'href'=>'https://www.youtube.com/watch?v=JgHfx2v9zOU',
             ],
         ]);
     }

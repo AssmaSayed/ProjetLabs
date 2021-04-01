@@ -14,7 +14,7 @@ class HomeCarouselSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('home_carousels')->table([
+        DB::table('home_carousels')->insert([
             [
                 'img1'=>'img/01.jpg',
                 'img2'=>'img/02.jpg'

@@ -15,7 +15,7 @@ class HomeAboutContantController extends Controller
     public function index()
     {
         $dbHomeAboutContant = HomeAboutContant::all();
-        return view('pages.home', compact('dbHomeAboutContant'));
+        return view('welcome', compact('dbHomeAboutContant'));
     }
 
     /**

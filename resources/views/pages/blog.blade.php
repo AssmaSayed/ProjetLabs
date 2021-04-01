@@ -37,7 +37,7 @@
 
 
 	@include('partials.blog.section')
-	@include('partials.services.newsletter')
+	@include('partials.newsletter')
 
     
 @endsection

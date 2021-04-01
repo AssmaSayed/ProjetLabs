@@ -2,7 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Newsletter;
 use App\Models\Service;
+use App\Models\ServicesFeature;
+use App\Models\ServicesFeatureImg;
+use App\Models\ServicesService;
+use App\Models\ServicesServicesCard;
+use App\Models\ServicesTitreSpan;
+use Database\Seeders\ServicesServicesCardSeeder;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -14,7 +21,16 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view('pages.services');
+        $dbServicesTitreSpan = ServicesTitreSpan::all();
+        $dbServicesServices = ServicesService::all();
+        $dbServicesFeatureImg = ServicesFeatureImg::all();
+        $dbServicesFeature = ServicesFeature::all();
+        $dbNewsletter = Newsletter::all();
+        $dbServicesServicesCard = ServicesServicesCard::all();
+
+
+
+        return view('pages.services', compact('dbServicesTitreSpan','dbServicesServices','dbServicesFeatureImg','dbServicesFeature','dbNewsletter','dbServicesServicesCard'));
     }
 
     /**

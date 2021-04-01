@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Caroussel;
-use App\Models\Header;
+use App\Models\ServicesFeature;
 use Illuminate\Http\Request;
-use JeroenNoten\LaravelAdminLte\AdminLte;
 
-class HeaderController extends Controller
+class ServicesFeatureController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class HeaderController extends Controller
      */
     public function index()
     {
-        $caroussel = Caroussel::all();
-        return view('welcome', compact('caroussel'));
+        //
     }
 
     /**
@@ -27,8 +24,7 @@ class HeaderController extends Controller
      */
     public function create()
     {
-        return view('vendor.adminlte.header.addCaroussel');
-
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class HeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\ServicesFeature  $servicesFeature
      * @return \Illuminate\Http\Response
      */
-    public function show(Header $header)
+    public function show(ServicesFeature $servicesFeature)
     {
         //
     }
@@ -56,10 +52,10 @@ class HeaderController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\ServicesFeature  $servicesFeature
      * @return \Illuminate\Http\Response
      */
-    public function edit(Header $header)
+    public function edit(ServicesFeature $servicesFeature)
     {
         //
     }
@@ -68,10 +64,10 @@ class HeaderController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\ServicesFeature  $servicesFeature
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Header $header)
+    public function update(Request $request, ServicesFeature $servicesFeature)
     {
         //
     }
@@ -79,10 +75,10 @@ class HeaderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Header  $header
+     * @param  \App\Models\ServicesFeature  $servicesFeature
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Header $header)
+    public function destroy(ServicesFeature $servicesFeature)
     {
         //
     }

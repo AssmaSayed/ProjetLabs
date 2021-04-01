@@ -16,6 +16,7 @@ class CreateHomeCarouselIntrosTable extends Migration
         Schema::create('home_carousel_intros', function (Blueprint $table) {
             $table->id();
             $table->string('img');
+            $table->string('text');
             $table->timestamps();
         });
     }
