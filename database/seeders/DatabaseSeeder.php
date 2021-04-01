@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
            ContactSeeder::class,
            ServiceSeeder::class, 
            NewsletterSeeder::class,
+           MapSeeder::class,
            HomeAboutContantSeeder::class,
            HomeCardSectionSeeder::class,
            HomeCarouselIntroSeeder::class,
