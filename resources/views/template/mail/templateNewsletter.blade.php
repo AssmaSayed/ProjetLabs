@@ -8,7 +8,11 @@
 </head>
 <body>
 
-    <h2>test</h2>
+    <h2>Bienvenue <b>{{$emailClient}}</b> </h2>
+
+    <p>Vous êtes desormais inscrit a notre Newsletter</p>
+
+
     
 </body>
 </html>

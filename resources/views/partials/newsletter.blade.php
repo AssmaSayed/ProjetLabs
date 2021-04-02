@@ -7,8 +7,9 @@
 				</div>
 				<div class="col-md-9">
 					<!-- newsletter form -->
-					<form class="nl-form">
-						<input type="text" placeholder="Your e-mail here">
+					<form action="/newsletterMail" method="POST" class="nl-form">
+						@csrf
+						<input type="text" name='email' placeholder="Your e-mail here">
 						<button class="site-btn btn-2">{{$dbNewsletter[0]->button}}</button>
 					</form>
 				</div>
