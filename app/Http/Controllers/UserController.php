@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
-use App\Models\ContactContactUs;
-use App\Models\ContactMainOffice;
-use App\Models\ContactPlaceholder;
-use App\Models\Map;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,11 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        $map = Map::first();
-        $contactContactUs = ContactContactUs::first();
-        $contactMainOffice = ContactMainOffice::first();
-        $contactPlaceholder = ContactPlaceholder::first();
-        return view('pages.contact', compact('map','contactContactUs','contactMainOffice','contactPlaceholder'));
+        $user = User::all();
+        return view('backOffice.user', compact('user'));
     }
 
     /**
@@ -32,7 +25,7 @@ class ContactController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -49,10 +42,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
         //
     }
@@ -60,34 +53,48 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $editUser = User::find($id);
+        return view('backOffice/editUser', compact('editUser'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "name" => "required|min:5|max:20",
+            "email" => "required|min:5|max:20",
+            "password" => "required",
+        ]);
+        
+        $update = User::find($id);
+        $update->name = $request->name;
+        $update->email = $request->email;
+        $update->password = $request->password;
+        $update->save();
+        return redirect('/');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $userDestroy = User::find($id);
+        $userDestroy->delete();
+        return redirect('/user');
     }
 }

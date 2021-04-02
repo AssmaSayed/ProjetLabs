@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactContactUs;
+use App\Models\ContactMainOffice;
+use App\Models\ContactPlaceholder;
 use App\Models\Newsletter;
 use App\Models\Service;
 use App\Models\ServicesFeature;
@@ -9,7 +12,6 @@ use App\Models\ServicesFeatureImg;
 use App\Models\ServicesService;
 use App\Models\ServicesServicesCard;
 use App\Models\ServicesTitreSpan;
-use Database\Seeders\ServicesServicesCardSeeder;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -27,10 +29,11 @@ class ServiceController extends Controller
         $dbServicesFeature = ServicesFeature::all();
         $dbNewsletter = Newsletter::all();
         $dbServicesServicesCard = ServicesServicesCard::all();
+        $contactContactUs = ContactContactUs::first();
+        $contactMainOffice = ContactMainOffice::first();
+        $contactPlaceholder = ContactPlaceholder::first();
 
-
-
-        return view('pages.services', compact('dbServicesTitreSpan','dbServicesServices','dbServicesFeatureImg','dbServicesFeature','dbNewsletter','dbServicesServicesCard'));
+        return view('pages.services', compact('dbServicesTitreSpan','dbServicesServices','dbServicesFeatureImg','dbServicesFeature','dbNewsletter','dbServicesServicesCard','contactContactUs','contactMainOffice','contactPlaceholder'));
     }
 
     /**

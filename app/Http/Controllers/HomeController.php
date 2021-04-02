@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactContactUs;
+use App\Models\ContactMainOffice;
+use App\Models\ContactPlaceholder;
 use App\Models\Home;
 use App\Models\HomeAboutContant;
 use App\Models\HomeCardSection;
@@ -37,11 +40,11 @@ class HomeController extends Controller
         $dbHomeTitreSpan = HomeTitreSpan::all();
         $dbHomeTitre = HomeTitre::all();
         $dbNewsletter = Newsletter::all();
+        $contactContactUs = ContactContactUs::first();
+        $contactMainOffice = ContactMainOffice::first();
+        $contactPlaceholder = ContactPlaceholder::first();
 
-
-
-
-        return view('welcome', compact('dbHomeAboutContant','dbHomeCardSection','dbHomeCarousel','dbHomeCarouselIntro','dbHome','dbHomePromotion','dbHomeSection','dbHomeService','dbHomeTestimonial','dbHomeTitreSpan','dbHomeTitre','dbNewsletter'));
+        return view('welcome', compact('dbHomeAboutContant','dbHomeCardSection','dbHomeCarousel','dbHomeCarouselIntro','dbHome','dbHomePromotion','dbHomeSection','dbHomeService','dbHomeTestimonial','dbHomeTitreSpan','dbHomeTitre','dbNewsletter','contactContactUs','contactMainOffice','contactPlaceholder'));
 
     }
 

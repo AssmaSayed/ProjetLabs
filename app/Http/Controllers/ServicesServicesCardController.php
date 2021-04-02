@@ -14,7 +14,7 @@ class ServicesServicesCardController extends Controller
      */
     public function index()
     {
-        /
+    
     }
 
     /**

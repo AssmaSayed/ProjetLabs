@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use App\Models\Blog;
 use App\Models\Contact;
+use App\Models\ContactContactUs;
+use App\Models\ContactPlaceholder;
 use App\Models\HomeAboutContant;
 use App\Models\HomeCardSection;
 use App\Models\HomeCarousel;
@@ -50,6 +52,10 @@ class DatabaseSeeder extends Seeder
            ServicesFeatureImgSeeder::class,
            ServicesFeatureSeeder::class,
            ServicesServicesCardSeeder::class,
+           ContactContactUsSeeder::class,
+           ContactMainOfficeSeeder::class,
+           ContactPlaceholderSeeder::class,
+
 
          ]);
         // \App\Models\User::factory(10)->create();
