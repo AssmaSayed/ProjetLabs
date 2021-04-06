@@ -14,8 +14,10 @@ class HomePromotionController extends Controller
      */
     public function index()
     {
-        //
+        $homePromotion = HomePromotion::all();
+        return view('backOffice/welcome/homePromotion', compact('homePromotion'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -55,9 +57,12 @@ class HomePromotionController extends Controller
      * @param  \App\Models\HomePromotion  $homePromotion
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomePromotion $homePromotion)
+    public function edit($id)
     {
-        //
+        $edit = HomePromotion::find($id);
+        return view('backOffice/welcome/editHomePromotion', compact('edit'));
+
+        
     }
 
     /**
@@ -67,9 +72,23 @@ class HomePromotionController extends Controller
      * @param  \App\Models\HomePromotion  $homePromotion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomePromotion $homePromotion)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "titre" => "required",
+            "text" => "required",
+            "button" => "required",
+
+        ]);
+        
+        $update = HomePromotion::find($id);
+        $update->titre = $request->titre;
+        $update->text = $request->text;
+        $update->button = $request->button;
+        $update->save();
+        return redirect('/homePromotion');
+
+
     }
 
     /**
@@ -78,8 +97,12 @@ class HomePromotionController extends Controller
      * @param  \App\Models\HomePromotion  $homePromotion
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomePromotion $homePromotion)
+    public function destroy($id)
     {
-        //
+        $destroy = HomePromotion::find($id);
+        $destroy->delete();
+        return redirect('/homePromotion');
+
+
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeSection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeSectionController extends Controller
 {
@@ -14,7 +15,9 @@ class HomeSectionController extends Controller
      */
     public function index()
     {
-        //
+        $homeSection = HomeSection::all();
+        return view('backOffice/welcome/homeSection', compact('homeSection'));
+
     }
 
     /**
@@ -55,9 +58,10 @@ class HomeSectionController extends Controller
      * @param  \App\Models\HomeSection  $homeSection
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeSection $homeSection)
+    public function edit($id)
     {
-        //
+        $edit = HomeSection::find($id);
+        return view('backOffice/welcome/editHomeSection', compact('edit'));
     }
 
     /**
@@ -67,9 +71,27 @@ class HomeSectionController extends Controller
      * @param  \App\Models\HomeSection  $homeSection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeSection $homeSection)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            // "img" => "required",
+            "name" => "required",
+            "role" => "required",
+
+        ]);
+        
+        $update = HomeSection::find($id);
+        if ($request->img == null) {
+            $request->img = $update->img;
+        }else{
+            Storage::put('public/img', $request->img);
+            $update->img = $request->file('img')->hashName(); //hashName change le nom pour qu'il soit unique    
+        }
+        $update->name = $request->name;
+        $update->role = $request->role;
+        $update->save();
+        return redirect('/homeSection');
+
     }
 
     /**
@@ -78,8 +100,10 @@ class HomeSectionController extends Controller
      * @param  \App\Models\HomeSection  $homeSection
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeSection $homeSection)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeSection::find($id);
+        $destroy->delete();
+        return redirect('/homeSection');
     }
 }

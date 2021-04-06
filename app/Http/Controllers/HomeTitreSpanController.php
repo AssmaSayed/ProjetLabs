@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Home;
 use App\Models\HomeTitreSpan;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class HomeTitreSpanController extends Controller
      */
     public function index()
     {
-        //
+        $homeTitreSpan = HomeTitreSpan::all();
+        return view('backOffice/welcome/homeTitreSpan', compact('homeTitreSpan'));
     }
 
     /**
@@ -55,9 +57,10 @@ class HomeTitreSpanController extends Controller
      * @param  \App\Models\HomeTitreSpan  $homeTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeTitreSpan $homeTitreSpan)
+    public function edit($id)
     {
-        //
+        $edit = HomeTitreSpan::find($id);
+        return view('backOffice/welcome/editHomeTitreSpan', compact('edit'));
     }
 
     /**
@@ -67,9 +70,20 @@ class HomeTitreSpanController extends Controller
      * @param  \App\Models\HomeTitreSpan  $homeTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeTitreSpan $homeTitreSpan)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "titre1" => "required",
+            "titre2" => "required",
+            "span" => "required",
+        ]);
+        $update = HomeTitreSpan::find($id);
+        $update->titre1 = $request->titre1;
+        $update->titre2 = $request->titre2;
+        $update->span = $request->span;
+        $update->save();
+        return redirect('/homeTitreSpan');
+
     }
 
     /**
@@ -78,8 +92,10 @@ class HomeTitreSpanController extends Controller
      * @param  \App\Models\HomeTitreSpan  $homeTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeTitreSpan $homeTitreSpan)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeTitreSpan::find($id);
+        $destroy->delete();
+        return redirect('/homeTitreSpan');
     }
 }

@@ -14,7 +14,9 @@ class HomeServiceController extends Controller
      */
     public function index()
     {
-        //
+        $homeServices = HomeService::all();
+        return view('backOffice/welcome/homeServices', compact('homeServices'));
+
     }
 
     /**
@@ -55,9 +57,10 @@ class HomeServiceController extends Controller
      * @param  \App\Models\HomeService  $homeService
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeService $homeService)
+    public function edit($id)
     {
-        //
+        $edit = HomeService::find($id);
+        return view('backOffice/welcome/editHomeServices', compact('edit'));
     }
 
     /**
@@ -67,9 +70,22 @@ class HomeServiceController extends Controller
      * @param  \App\Models\HomeService  $homeService
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeService $homeService)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "icon" => "required",
+            "services" => "required",
+            "text" => "required",
+
+        ]);
+        
+        $update = HomeService::find($id);
+        $update->icon = $request->icon;
+        $update->services = $request->services;
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/homeServices');
+
     }
 
     /**
@@ -78,8 +94,10 @@ class HomeServiceController extends Controller
      * @param  \App\Models\HomeService  $homeService
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeService $homeService)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeService::find($id);
+        $destroy->delete();
+        return redirect('/homeServices');
     }
 }

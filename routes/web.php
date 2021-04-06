@@ -2,11 +2,22 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeCardSectionController;
+use App\Http\Controllers\HomeCarouselController;
+use App\Http\Controllers\HomeCarouselIntroController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomePromotionController;
+use App\Http\Controllers\HomeSectionController;
+use App\Http\Controllers\HomeServiceController;
+use App\Http\Controllers\HomeTestimonialController;
+use App\Http\Controllers\HomeTitreController;
+use App\Http\Controllers\HomeTitreSpanController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Models\HomePromotion;
+use App\Models\UserProfil;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -27,15 +38,34 @@ Route::resource('blog', BlogController::class);
 Route::resource('contact', ContactController::class);
 Route::resource('user', UserController::class);
 Route::resource('newsletterMail', NewsletterMailController::class);
+// Route::resource('userProfil', [UserProfil::class]);
+
+//EDIT
+Route::resource('user', UserController::class);
+Route::resource('homeCard', HomeCardSectionController::class);
+Route::resource('homeCarouselIntro', HomeCarouselIntroController::class);
+Route::resource('homeCarousel', HomeCarouselController::class);
+Route::resource('homePromotion', HomePromotionController::class);
+Route::resource('homeSection', HomeSectionController::class);
+Route::resource('homeServices', HomeServiceController::class);
+Route::resource('homeTestimonial', HomeTestimonialController::class);
+Route::resource('homeTitreSpan', HomeTitreSpanController::class);
+Route::resource('homeTitre', HomeTitreController::class);
+
+
+//POST
+Route::post('/mail', [MailController::class, 'store']);
 
 
 
-Auth::routes();
 
+
+//AUTH MIDDLEWARE
 Route::get('/home', function() {
     return view('home');
 })->name('home')->middleware('auth');
 
 
-//POST
-Route::post('/mail', [MailController::class, 'store']);
+// Auth::routes();
+Auth::routes();
+

@@ -14,7 +14,9 @@ class HomeCardSectionController extends Controller
      */
     public function index()
     {
-        //
+        $homeCardSection = HomeCardSection::all();
+        
+        return view('backOffice/welcome/homeCardSection',compact('homeCardSection'));
     }
 
     /**
@@ -55,9 +57,10 @@ class HomeCardSectionController extends Controller
      * @param  \App\Models\HomeCardSection  $homeCardSection
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeCardSection $homeCardSection)
+    public function edit($id)
     {
-        //
+        $edit = HomeCardSection::find($id);
+        return view('backOffice/welcome/editHomeCardSection', compact('edit'));
     }
 
     /**
@@ -67,9 +70,21 @@ class HomeCardSectionController extends Controller
      * @param  \App\Models\HomeCardSection  $homeCardSection
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeCardSection $homeCardSection)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "icon" => "required",
+            "titre" => "required",
+            "text" => "required",
+        ]);
+        
+        $update = HomeCardSection::find($id);
+        $update->icon = $request->icon;
+        $update->titre = $request->titre;
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/homeCard');
+
     }
 
     /**
@@ -78,8 +93,10 @@ class HomeCardSectionController extends Controller
      * @param  \App\Models\HomeCardSection  $homeCardSection
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeCardSection $homeCardSection)
+    public function destroy($id)
     {
-        //
+        // $userDestroy = HomeCardSection::find($id);
+        // $userDestroy->delete();
+        // return redirect('/user');
     }
 }

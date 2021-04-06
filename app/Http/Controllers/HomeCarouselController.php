@@ -14,7 +14,9 @@ class HomeCarouselController extends Controller
      */
     public function index()
     {
-        //
+        $homeCarousel= HomeCarousel::all();
+        return view('backOffice/welcome/homeCarousel', compact('homeCarousel'));
+
     }
 
     /**
@@ -55,9 +57,11 @@ class HomeCarouselController extends Controller
      * @param  \App\Models\HomeCarousel  $homeCarousel
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeCarousel $homeCarousel)
+    public function edit($id)
     {
-        //
+        $edit = HomeCarousel::find($id);
+        return view('backOffice/welcome/editHomeCarousel', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,19 @@ class HomeCarouselController extends Controller
      * @param  \App\Models\HomeCarousel  $homeCarousel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeCarousel $homeCarousel)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "img1" => "required",
+            "img2" => "required",
+        ]);
+        
+        $update = HomeCarousel::find($id);
+        $update->img1 = $request->img1;
+        $update->img2 = $request->img2;
+        $update->save();
+        return redirect('/homeCarousel');
+
     }
 
     /**
@@ -78,8 +92,13 @@ class HomeCarouselController extends Controller
      * @param  \App\Models\HomeCarousel  $homeCarousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeCarousel $homeCarousel)
+    public function destroy($id)
+    
     {
-        //
-    }
+        $destroy = HomeCarousel::find($id);
+        $destroy->delete();
+        return redirect('/homeCarousel');
+     }
+    
+    
 }

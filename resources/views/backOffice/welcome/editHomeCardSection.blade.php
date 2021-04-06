@@ -1,4 +1,4 @@
-{{-- @extends('adminlte::page')
+@extends('adminlte::page')
 
 @section('title', 'AdminLTE')
 
@@ -22,20 +22,20 @@
                         </div>
                     @endif
 
-                    <form action="/user/{{$edit->id}}" method="POST" >
+                    <form action="/homeCard/{{$edit->id}}" method="POST" >
                         @csrf
                         @method('PATCH')
                         <div>
-                            <label for="">Nom</label>
-                            <input type="text" name="name" class="form-control" value="{{old('name' ) ? old('name') : $edit->name}}">
+                            <label for="">Icon</label>
+                            <input type="text" name="icon" class="form-control" value="{{old('icon' ) ? old('icon') : $edit->icon}}">
                         </div>
                         <div class="form-group">
-                            <label for="">Adresse email</label>
-                            <input type="email" name="email" class="form-control" value="{{old('email' ) ? old('email') : $edit->email}}">
+                            <label for="">Titre</label>
+                            <input type="text" name="titre" class="form-control" value="{{old('titre' ) ? old('titre') : $edit->titre}}">
                         </div>
                         <div class="form-group">
-                          <label for="">Mot de passe</label>
-                          <input type="password" name="password" class="form-control" value="{{old('password' ) ? old('password') : $edit->password}}">
+                          <label for="">Text</label>
+                          <input type="text" name="text" class="form-control" value="{{old('text' ) ? old('text') : $edit->text}}">
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -43,4 +43,4 @@
             </div>
         </div>
     </div>
-@stop --}}
+@stop 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -80,7 +81,7 @@ class UserController extends Controller
         $update = User::find($id);
         $update->name = $request->name;
         $update->email = $request->email;
-        $update->password = $request->password;
+        $update->password = Hash::make($request['password']);
         $update->save();
         return redirect('/home');
     }

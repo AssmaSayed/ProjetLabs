@@ -254,67 +254,115 @@ return [
         // ],
         [
             'text'    => 'MODIFIER',
-            // 'icon'    => 'fas fa-fw fa-share',
             'submenu' => [
-                // [
-                //     'text' => 'caroussel',
-                //     'url'  => '/addCaroussel',
-                // ],
                 [
                     'text'    => 'welcome',
                     'url'     => '#',
                     'submenu' => [
                         [
-                            'text' => 'Carousel',
-                            'url'  => '#',
+                            'text' => 'Carousel 1',
+                            'url'  => '/homeCarouselIntro',
+                        ],
+                        [
+                            'text' => 'Carousel 2-3',
+                            'url'  => '/homeCarousel',
                         ],
 
                         [
                             'text' => 'Card section',
-                            'url'  => '#',
+                            'url'  => '/homeCard',
                         ],
                         [
                             'text' => 'Testimonial',
-                            'url'  => '#',
+                            'url'  => '/homeTestimonial',
                         ],
+                        [
+                            'text' => 'Services',
+                            'url'  => '/homeServices',
+                        ],
+                        [
+                            'text' => 'Section',
+                            'url'  => '/homeSection',
+                        ],
+                        [
+                            'text' => 'Promotion Ready',
+                            'url'  => '/homePromotion',
+                        ],
+                        [
+                            'text' => 'Titre + span',
+                            'url'  => '/homeTitreSpan',
+                        ],
+                        [
+                            'text' => 'Titre',
+                            'url'  => '/homeTitre',
+                        ],
+
+                    ],
+                    
+                ],
+                [
+                    'text'    => 'services',
+                    'url'     => '#',
+                    'submenu' => [
                         [
                             'text' => 'Services',
                             'url'  => '#',
                         ],
+
                         [
-                            'text' => 'Section',
+                            'text' => 'Feature',
                             'url'  => '#',
                         ],
                         [
-                            'text' => 'Promotion Ready',
+                            'text' => 'Services Card',
                             'url'  => '#',
                         ],
-
-                        
-
-
-                        // [
-                        //     'text'    => 'level_two',
-                        //     'url'     => '#',
-                        //     'submenu' => [
-                        //         [
-                        //             'text' => 'level_three',
-                        //             'url'  => '#',
-                        //         ],
-                        //         [
-                        //             'text' => 'level_three',
-                        //             'url'  => '#',
-                        //         ],
-                        //     ],
-                        // ],
+                        [
+                            'text' => 'Newsletter',
+                            'url'  => '#',
+                        ],
+                        [
+                            'text' => 'Contact',
+                            'url'  => '#',
+                        ],
                     ],
+                    
                 ],
                 // [
-                //     'text' => 'level_one',
-                //     'url'  => '#',
+                //     'text'    => 'Blog',
+                //     'url'     => '#',
+                //     'submenu' => [
+                //         [
+                //             'text' => 'Carousel',
+                //             'url'  => '#',
+                //         ],
+
+                //         [
+                //             'text' => 'Card section',
+                //             'url'  => '#',
+                //         ],
+                //         [
+                //             'text' => 'Testimonial',
+                //             'url'  => '#',
+                //         ],
+                //         [
+                //             'text' => 'Services',
+                //             'url'  => '#',
+                //         ],
+                //         [
+                //             'text' => 'Section',
+                //             'url'  => '#',
+                //         ],
+                //         [
+                //             'text' => 'Promotion Ready',
+                //             'url'  => '#',
+                //         ],
+                //     ],
+                    
                 // ],
             ],
         ],
+        
         // ['header' => 'labels'],
         // [
         //     'text'       => 'important',

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeCarouselIntro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeCarouselIntroController extends Controller
 {
@@ -14,7 +15,9 @@ class HomeCarouselIntroController extends Controller
      */
     public function index()
     {
-        //
+        $homeCarouselIntro = HomeCarouselIntro::all();
+        return view('backOffice/welcome/homeCarouselIntro', compact('homeCarouselIntro'));
+
     }
 
     /**
@@ -55,9 +58,10 @@ class HomeCarouselIntroController extends Controller
      * @param  \App\Models\HomeCarouselIntro  $homeCarouselIntro
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeCarouselIntro $homeCarouselIntro)
+    public function edit($id)
     {
-        //
+        $edit = HomeCarouselIntro::find($id);
+        return view('backOffice/welcome/editHomeCarouselIntro', compact('edit'));
     }
 
     /**
@@ -67,9 +71,26 @@ class HomeCarouselIntroController extends Controller
      * @param  \App\Models\HomeCarouselIntro  $homeCarouselIntro
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeCarouselIntro $homeCarouselIntro)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            // "img" => "required",
+            "text" => "required",
+
+        ]);
+        
+        $update = HomeCarouselIntro::find($id);
+        if ($request->img == null) {
+            $request->img = $update->img;
+        }else{
+            Storage::put('public/img', $request->img);
+            $update->img = $request->file('img')->hashName(); //hashName change le nom pour qu'il soit unique    
+
+        }
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/homeCarouselIntro');
+
     }
 
     /**
@@ -78,8 +99,10 @@ class HomeCarouselIntroController extends Controller
      * @param  \App\Models\HomeCarouselIntro  $homeCarouselIntro
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeCarouselIntro $homeCarouselIntro)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeCarouselIntro::find($id);
+        $destroy->delete();
+        return redirect('/homeServices');
     }
 }

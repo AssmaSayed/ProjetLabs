@@ -14,7 +14,9 @@ class HomeTitreController extends Controller
      */
     public function index()
     {
-        //
+        $homeTitre= HomeTitre::all();
+        return view('backOffice/welcome/homeTitre', compact('homeTitre'));
+
     }
 
     /**
@@ -55,9 +57,11 @@ class HomeTitreController extends Controller
      * @param  \App\Models\HomeTitre  $homeTitre
      * @return \Illuminate\Http\Response
      */
-    public function edit(HomeTitre $homeTitre)
+    public function edit($id)
     {
-        //
+        $edit = HomeTitre::find($id);
+        return view('backOffice/welcome/editHomeTitre', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,16 @@ class HomeTitreController extends Controller
      * @param  \App\Models\HomeTitre  $homeTitre
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HomeTitre $homeTitre)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "titre" => "required",
+        ]);
+        $update = HomeTitre::find($id);
+        $update->titre = $request->titre;
+        $update->save();
+        return redirect('/homeTitreSpan');
+
     }
 
     /**
@@ -78,8 +89,10 @@ class HomeTitreController extends Controller
      * @param  \App\Models\HomeTitre  $homeTitre
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeTitre $homeTitre)
+    public function destroy($id)
     {
-        //
+        $destroy = HomeTitre::find($id);
+        $destroy->delete();
+        return redirect('/homeTitre');
     }
 }
