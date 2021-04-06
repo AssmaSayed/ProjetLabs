@@ -311,7 +311,7 @@ return [
 
                         [
                             'text' => 'Feature',
-                            'url'  => '#',
+                            'url'  => 'servicesFeatures',
                         ],
                         [
                             'text' => 'Services Card',

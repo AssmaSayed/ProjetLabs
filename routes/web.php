@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeTitreSpanController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\NewsletterMailController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServicesFeatureController;
 use App\Http\Controllers\UserController;
 use App\Models\HomePromotion;
 use App\Models\UserProfil;
@@ -38,9 +39,9 @@ Route::resource('blog', BlogController::class);
 Route::resource('contact', ContactController::class);
 Route::resource('user', UserController::class);
 Route::resource('newsletterMail', NewsletterMailController::class);
-// Route::resource('userProfil', [UserProfil::class]);
+// Route::resource('userProfil', UserProfilController::class);
 
-//EDIT
+//EDIT HOME
 Route::resource('user', UserController::class);
 Route::resource('homeCard', HomeCardSectionController::class);
 Route::resource('homeCarouselIntro', HomeCarouselIntroController::class);
@@ -52,6 +53,8 @@ Route::resource('homeTestimonial', HomeTestimonialController::class);
 Route::resource('homeTitreSpan', HomeTitreSpanController::class);
 Route::resource('homeTitre', HomeTitreController::class);
 
+//EDIT SERVICES
+Route::resource('servicesFeatures', ServicesFeatureController::class);
 
 //POST
 Route::post('/mail', [MailController::class, 'store']);
