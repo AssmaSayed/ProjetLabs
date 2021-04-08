@@ -14,7 +14,9 @@ class ServicesTitreSpanController extends Controller
      */
     public function index()
     {
-        //
+        $servicesTitreSpan = ServicesTitreSpan::all();
+        return view('backOffice/services/servicesTitreSpan', compact('servicesTitreSpan'));
+
     }
 
     /**
@@ -55,9 +57,11 @@ class ServicesTitreSpanController extends Controller
      * @param  \App\Models\ServicesTitreSpan  $servicesTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServicesTitreSpan $servicesTitreSpan)
+    public function edit( $id)
     {
-        //
+        $edit = ServicesTitreSpan::find($id);
+        return view('backOffice/services/editServicesTitreSpan', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,20 @@ class ServicesTitreSpanController extends Controller
      * @param  \App\Models\ServicesTitreSpan  $servicesTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicesTitreSpan $servicesTitreSpan)
+    public function update(Request $request,  $id)
     {
-        //
+        $validation = $request->validate([
+            "titre1" => "required",
+            "titre2" => "required",
+            "span" => "required",
+        ]);
+        $update = ServicesTitreSpan::find($id);
+        $update->titre1 = $request->titre1;
+        $update->titre2 = $request->titre2;
+        $update->span = $request->span;
+        $update->save();
+        return redirect('/servicesitreSpan');
+
     }
 
     /**
@@ -78,8 +93,11 @@ class ServicesTitreSpanController extends Controller
      * @param  \App\Models\ServicesTitreSpan  $servicesTitreSpan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicesTitreSpan $servicesTitreSpan)
+    public function destroy( $id)
     {
-        //
+        $destroy = ServicesTitreSpan::find($id);
+        $destroy->delete();
+        return redirect('/servicesTitreSpan');
+
     }
 }

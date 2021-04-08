@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeTestimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class HomeTestimonialController extends Controller
@@ -106,7 +107,7 @@ class HomeTestimonialController extends Controller
      * @param  \App\Models\HomeTestimonial  $homeTestimonial
      * @return \Illuminate\Http\Response
      */
-    public function destroy(HomeTestimonial $homeTestimonial)
+    public function destroy( $id)
     {
         //
     }

@@ -24,7 +24,7 @@ class ServiceController extends Controller
     public function index()
     {
         $dbServicesTitreSpan = ServicesTitreSpan::all();
-        $dbServicesServices = ServicesService::all();
+        $dbServicesServices = ServicesService::orderBy("id", "DESC")->paginate(9);
         $dbServicesFeatureImg = ServicesFeatureImg::all();
         $dbServicesFeature = ServicesFeature::all();
         $dbNewsletter = Newsletter::all();

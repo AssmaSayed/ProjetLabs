@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ServicesFeatureImg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServicesFeatureImgController extends Controller
 {
@@ -14,7 +15,9 @@ class ServicesFeatureImgController extends Controller
      */
     public function index()
     {
-        //
+        $servicesFeaturesImg = ServicesFeatureImg::all();
+        return view('backOffice/services/servicesFeaturesImg', compact('servicesFeaturesImg'));
+
     }
 
     /**
@@ -55,9 +58,11 @@ class ServicesFeatureImgController extends Controller
      * @param  \App\Models\ServicesFeatureImg  $servicesFeatureImg
      * @return \Illuminate\Http\Response
      */
-    public function edit(ServicesFeatureImg $servicesFeatureImg)
+    public function edit( $id)
     {
-        //
+        $edit = ServicesFeatureImg::find($id);
+        return view('backOffice/services/editServicesFeaturesImg', compact('edit'));
+
     }
 
     /**
@@ -67,9 +72,24 @@ class ServicesFeatureImgController extends Controller
      * @param  \App\Models\ServicesFeatureImg  $servicesFeatureImg
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ServicesFeatureImg $servicesFeatureImg)
+    public function update(Request $request,  $id)
     {
-        //
+        $validation = $request->validate([
+            // "img" => "required",
+
+        ]);
+        
+        $update = ServicesFeatureImg::find($id);
+        if ($request->img == null) {
+            $request->img = $update->img;
+        }else{
+            Storage::put('public/img', $request->img);
+            $update->img = $request->file('img')->hashName(); //hashName change le nom pour qu'il soit unique    
+
+        }
+        $update->save();
+        return redirect('/servicesFeaturesImg');
+
     }
 
     /**
@@ -78,8 +98,11 @@ class ServicesFeatureImgController extends Controller
      * @param  \App\Models\ServicesFeatureImg  $servicesFeatureImg
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ServicesFeatureImg $servicesFeatureImg)
+    public function destroy( $id)
     {
-        //
+        $destroy = ServicesFeatureImg::find($id);
+        $destroy->delete();
+        return redirect('/servicesFeaturesImg');
+
     }
 }

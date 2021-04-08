@@ -14,6 +14,8 @@ class ContactContactUsController extends Controller
      */
     public function index()
     {
+        $contactContactUs = ContactContactUs::all();
+        return view('backOffice/contactContactUs', compact('contactContactUs'));
 
     }
 
@@ -55,9 +57,11 @@ class ContactContactUsController extends Controller
      * @param  \App\Models\ContactContactUs  $contactContactUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactContactUs $contactContactUs)
+    public function edit($id)
     {
-        //
+        $edit = ContactContactUs::find($id);
+        return view('backOffice/editContactContactUs', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,21 @@ class ContactContactUsController extends Controller
      * @param  \App\Models\ContactContactUs  $contactContactUs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactContactUs $contactContactUs)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "titre" => "required",
+            "text" => "required",
+
+        ]);
+        
+        $update = ContactContactUs::find($id);
+        $update->titre = $request->titre;
+        $update->text = $request->text;
+        $update->save();
+        return redirect('/contactUs');
+
+
     }
 
     /**
@@ -78,8 +94,11 @@ class ContactContactUsController extends Controller
      * @param  \App\Models\ContactContactUs  $contactContactUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactContactUs $contactContactUs)
+    public function destroy( $id)
     {
-        //
+        $destroy = ContactContactUs::find($id);
+        $destroy->delete();
+        return redirect('/contactUs');
+
     }
 }

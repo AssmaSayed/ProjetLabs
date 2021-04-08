@@ -14,7 +14,9 @@ class ContactMainOfficeController extends Controller
      */
     public function index()
     {
-        //
+        $contactMainOffice = ContactMainOffice::all();
+        return view('backOffice/contactMainOffice', compact('contactMainOffice'));
+
     }
 
     /**
@@ -55,9 +57,11 @@ class ContactMainOfficeController extends Controller
      * @param  \App\Models\ContactMainOffice  $contactMainOffice
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactMainOffice $contactMainOffice)
+    public function edit( $id)
     {
-        //
+        $edit = ContactMainOffice::find($id);
+        return view('backOffice/contactMainOffice', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,26 @@ class ContactMainOfficeController extends Controller
      * @param  \App\Models\ContactMainOffice  $contactMainOffice
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactMainOffice $contactMainOffice)
+    public function update(Request $request, $id)
     {
-        //
+        $validation = $request->validate([
+            "titre" => "required",
+            "adresse1" => "required",
+            "adresse2" => "required",
+            "phone" => "required",
+            "email" => "required",
+
+        ]);
+        
+        $update = ContactMainOffice::find($id);
+        $update->titre = $request->titre;
+        $update->adresse1 = $request->adresse1;
+        $update->adresse2 = $request->adresse2;
+        $update->phone = $request->phone;
+        $update->email = $request->email;
+        $update->save();
+        return redirect('/contactMainOffice');
+
     }
 
     /**
@@ -78,8 +99,11 @@ class ContactMainOfficeController extends Controller
      * @param  \App\Models\ContactMainOffice  $contactMainOffice
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactMainOffice $contactMainOffice)
+    public function destroy( $id)
     {
-        //
+        $destroy = ContactMainOffice::find($id);
+        $destroy->delete();
+        return redirect('/contactMainOffice');
+
     }
 }

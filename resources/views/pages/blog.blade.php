@@ -36,6 +36,7 @@
 	<!-- Page header end-->
 
 
+
 	@include('partials.blog.section')
 	@include('partials.newsletter')
 

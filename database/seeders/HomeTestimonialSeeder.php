@@ -30,26 +30,26 @@ class HomeTestimonialSeeder extends Seeder
             [
                 'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
                 'img'=>'img/avatar/01.jpg',
-                'name'=>'Michael Smith',
-                'role'=>'CEO Company'
+                'name'=>'Rayanne',
+                'role'=>'CONCIERGE'
             ],
             [
                 'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
                 'img'=>'img/avatar/02.jpg',
-                'name'=>'Michael Smith',
-                'role'=>'CEO Company'
+                'name'=>'Théodora ',
+                'role'=>'BIG BOSS 3 '
             ],
             [
                 'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
                 'img'=>'img/avatar/01.jpg',
-                'name'=>'Michael Smith',
-                'role'=>'CEO Company'
+                'name'=>'Violette',
+                'role'=>'BIG BOSS 2'
             ],
             [
                 'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.',
                 'img'=>'img/avatar/02.jpg',
-                'name'=>'Michael Smith',
-                'role'=>'CEO Company'
+                'name'=>'Assma',
+                'role'=>'BIG BOSS'
             ],
 
         ]);

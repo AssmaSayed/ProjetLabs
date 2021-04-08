@@ -32,9 +32,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            //user
+           RoleSeeder::class,
+           FonctionSeeder::class,
+           UserSeeder::class,
+           //pages
            BlogSeeder::class,
            ContactSeeder::class,
-           ServiceSeeder::class, 
+           ServiceSeeder::class,
+           //partials 
            NewsletterSeeder::class,
            MapSeeder::class,
            HomeAboutContantSeeder::class,
@@ -55,6 +61,8 @@ class DatabaseSeeder extends Seeder
            ContactContactUsSeeder::class,
            ContactMainOfficeSeeder::class,
            ContactPlaceholderSeeder::class,
+           CategorySeeder::class,
+           PostSeeder::class
 
 
          ]);

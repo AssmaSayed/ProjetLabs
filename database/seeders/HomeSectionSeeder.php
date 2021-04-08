@@ -16,20 +16,27 @@ class HomeSectionSeeder extends Seeder
     {
         DB::table('home_sections')->insert([
             [
-                'img'=>'img/team/1.jpg',
-                'name'=>'Christinne Williams',
-                'role'=>'Project Manager'
+                'img'=>'team/2.jpg',
+                'name'=>'Zoé Christi',
+                'role'=>'CEO'
             ],
             [
-                'img'=>'img/team/2.jpg',
-                'name'=>'Christinne Williams',
-                'role'=>'Junior developer'
+                'img'=>'team/1.jpg',
+                'name'=>'Assma Sayed',
+                'role'=>'Web developper'
             ],
             [
-                'img'=>'img/team/3.jpg',
+                'img'=>'team/3.jpg',
                 'name'=>'Christinne Williams',
                 'role'=>'Digital designer'
+            ],
+            [
+                'img'=>'team/3.jpg',
+                'name'=>'Christinne Dumont',
+                'role'=>'Digital designer'
             ]
+
+
 
         ]);
     }

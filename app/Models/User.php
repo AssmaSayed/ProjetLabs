@@ -18,8 +18,15 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'firstname',
         'email',
         'password',
+        'function_id',
+        'role_id',
+        'img',
+        'description',
+        'validate',
+
     ];
 
     /**
@@ -40,4 +47,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-}
+    public function fonctions(){
+        return $this->belongsTo(Fonction::class, "function_id");
+    }
+    public function posts(){
+        return $this->hasMany(Post::class, "user_id");
+    }
+    public function roles(){
+        return $this->belongsTo(Role::class, "role_id");
+    }
+};
+

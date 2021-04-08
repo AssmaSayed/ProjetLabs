@@ -61,6 +61,22 @@ class ServicesServiceSeeder extends Seeder
                 'services'=>'Ultra modern',
                 'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..'
             ],
+            [
+                'icon'=>'flaticon-018-laptop-1',
+                'services'=>'Responsiv 2',
+                'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..'
+            ],
+            [
+                'icon'=>'flaticon-043-sketch',
+                'services'=>'Retina GO',
+                'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..'
+            ],
+            [
+                'icon'=>'flaticon-012-cube',
+                'services'=>'Ultra COOL ',
+                'text'=>'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..'
+            ],
+
         ]);
 
     }

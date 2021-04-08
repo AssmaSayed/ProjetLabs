@@ -14,7 +14,8 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        // $dbNewsletter = Newsletter::all();
+        $newsletter = Newsletter::all();
+        return view('backOffice/newsletter', compact('newsletter'));
     }
 
     /**
@@ -55,9 +56,11 @@ class NewsletterController extends Controller
      * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Newsletter $newsletter)
+    public function edit( $id)
     {
-        //
+        $edit = Newsletter::find($id);
+        return view('backOffice/EditNewsletter', compact('edit'));
+
     }
 
     /**
@@ -67,9 +70,20 @@ class NewsletterController extends Controller
      * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Newsletter $newsletter)
+    public function update(Request $request,  $id)
     {
-        //
+        $validation = $request->validate([
+            "titre" => "required",
+            "button" => "required",
+
+        ]);
+        
+        $update = Newsletter::find($id);
+        $update->titre = $request->titre;
+        $update->button = $request->button;
+        $update->save();
+        return redirect('/newsletter');
+
     }
 
     /**
@@ -78,8 +92,11 @@ class NewsletterController extends Controller
      * @param  \App\Models\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy( $id)
     {
-        //
+        $destroy = Newsletter::find($id);
+        $destroy->delete();
+        return redirect('/newsletter');
+
     }
 }

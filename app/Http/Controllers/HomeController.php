@@ -18,6 +18,7 @@ use App\Models\HomeTitre;
 use App\Models\HomeTitreSpan;
 use App\Models\Newsletter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -37,6 +38,7 @@ class HomeController extends Controller
         $dbHomeSection = HomeSection::all();
         $dbHomeService = HomeService::all();
         $dbHomeTestimonial = HomeTestimonial::all();
+        $testimonials = HomeTestimonial::orderBy("id", "desc")->limit(6)->get(); //afficher les 6 derniers
         $dbHomeTitreSpan = HomeTitreSpan::all();
         $dbHomeTitre = HomeTitre::all();
         $dbNewsletter = Newsletter::all();
@@ -44,7 +46,7 @@ class HomeController extends Controller
         $contactMainOffice = ContactMainOffice::first();
         $contactPlaceholder = ContactPlaceholder::first();
 
-        return view('welcome', compact('dbHomeAboutContant','dbHomeCardSection','dbHomeCarousel','dbHomeCarouselIntro','dbHome','dbHomePromotion','dbHomeSection','dbHomeService','dbHomeTestimonial','dbHomeTitreSpan','dbHomeTitre','dbNewsletter','contactContactUs','contactMainOffice','contactPlaceholder'));
+        return view('welcome', compact('dbHomeAboutContant','dbHomeCardSection','dbHomeCarousel','dbHomeCarouselIntro','dbHome','dbHomePromotion','dbHomeSection','dbHomeService','dbHomeTestimonial','testimonials','dbHomeTitreSpan','dbHomeTitre','dbNewsletter','contactContactUs','contactMainOffice','contactPlaceholder'));
 
     }
 

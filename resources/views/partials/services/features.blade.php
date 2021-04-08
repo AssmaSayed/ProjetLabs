@@ -3,7 +3,7 @@
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="section-title">
-				<h2>{{$dbServicesTitreSpan[0]->titre1}} <span>{{$dbServicesTitreSpan[0]->span}}</span> {{$dbServicesTitreSpan[0]->titre2}}</h2>
+				<h2>{{$dbServicesTitreSpan[1]->titre1}} <span>{{$dbServicesTitreSpan[1]->span}}</span> {{$dbServicesTitreSpan[1]->titre2}}</h2>
 			</div>
 			<div class="row">
 				<!-- feature item -->

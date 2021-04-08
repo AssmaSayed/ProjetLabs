@@ -14,7 +14,9 @@ class ContactPlaceholderController extends Controller
      */
     public function index()
     {
-        //
+        $contactPlaceholder = ContactPlaceholder::all();
+        return view('backOffice/contactPlaceholder', compact('contactPlaceholder'));
+
     }
 
     /**
@@ -55,9 +57,11 @@ class ContactPlaceholderController extends Controller
      * @param  \App\Models\ContactPlaceholder  $contactPlaceholder
      * @return \Illuminate\Http\Response
      */
-    public function edit(ContactPlaceholder $contactPlaceholder)
+    public function edit( $id)
     {
-        //
+        $edit = ContactPlaceholder::find($id);
+        return view('backOffice/contactPlaceholder', compact('edit'));
+
     }
 
     /**
@@ -67,9 +71,25 @@ class ContactPlaceholderController extends Controller
      * @param  \App\Models\ContactPlaceholder  $contactPlaceholder
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ContactPlaceholder $contactPlaceholder)
+    public function update(Request $request,  $id)
     {
-        //
+        $validation = $request->validate([
+            "name" => "required",
+            "email" => "required",
+            "subject" => "required",
+            "message" => "required",
+
+        ]);
+        
+        $update = ContactPlaceholder::find($id);
+        $update->name = $request->name;
+        $update->email = $request->email;
+        $update->subject = $request->subject;
+        $update->message = $request->message;
+        $update->save();
+        return redirect('/contactPlaceholder');
+
+
     }
 
     /**
@@ -78,8 +98,10 @@ class ContactPlaceholderController extends Controller
      * @param  \App\Models\ContactPlaceholder  $contactPlaceholder
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ContactPlaceholder $contactPlaceholder)
+    public function destroy($id)
     {
-        //
+        $destroy = ContactPlaceholder::find($id);
+        $destroy->delete();
+        return redirect('/contactPlaceholder');
     }
 }

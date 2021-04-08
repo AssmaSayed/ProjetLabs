@@ -4,21 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Newsletter;
+use App\Models\Post;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
-{
+{ 
+    //BLOG
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index() //page principal(blog)
     {
         $dbNewsletter = Newsletter::all();
+        $post = Post::all();
 
-        return view('pages.blog',compact('dbNewsletter'));
+        return view('pages.blog',compact('dbNewsletter','post'));
     }
 
     /**
@@ -48,7 +51,7 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Blog $blog) 
     {
         //
     }

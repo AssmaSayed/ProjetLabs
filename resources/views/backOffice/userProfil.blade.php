@@ -12,7 +12,10 @@
             <div class="card">
                 <div class="card-body">
                     <h1>PROFIL CONNECTER : </h1>
-                    
+                    @if (Auth::check()) {
+                        {{Auth::user()->name}}
+                    }
+                    @endif                
                 </div>
             </div>
         </div>

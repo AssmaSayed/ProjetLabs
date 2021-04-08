@@ -244,9 +244,15 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => 'userProfil',
             'icon' => 'fas fa-fw fa-user',
         ],
+        [
+            'text' => 'VALIDATION USER',
+            'url'  => 'validationUser',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+
         // [
         //     'text' => 'change_password',
         //     'url'  => 'admin/settings',
@@ -306,7 +312,11 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Services',
-                            'url'  => '#',
+                            'url'  => 'servicesServices',
+                        ],
+                        [
+                            'text' => 'Services Card',
+                            'url'  => 'servicesServicesCard',
                         ],
 
                         [
@@ -314,17 +324,15 @@ return [
                             'url'  => 'servicesFeatures',
                         ],
                         [
-                            'text' => 'Services Card',
-                            'url'  => '#',
+                            'text' => 'Feature img',
+                            'url'  => 'servicesFeaturesImg',
                         ],
                         [
-                            'text' => 'Newsletter',
-                            'url'  => '#',
+                            'text' => 'Titre span',
+                            'url'  => 'servicesTitreSpan',
                         ],
-                        [
-                            'text' => 'Contact',
-                            'url'  => '#',
-                        ],
+
+
                     ],
                     
                 ],
@@ -360,6 +368,42 @@ return [
                 //     ],
                     
                 // ],
+                [
+                    'text'    => 'NEWSLETTER',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Newsletter',
+                            'url'  => 'newsletter',
+                        ],
+
+                    ],
+                    
+                ],
+                [
+                    'text'    => 'CONTACT',
+                    'url'     => '#',
+                    'submenu' => [
+                        [
+                            'text' => 'Contact US',
+                            'url'  => 'contactUs',
+                        ],
+                        [
+                            'text' => 'Contact donnée',
+                            'url'  => 'contactMainOffice',
+                        ],
+                        [
+                            'text' => 'Contact placeholder',
+                            'url'  => 'contactPlaceholder',
+                        ],
+
+
+
+                    ],
+                    
+                ],
+
+
             ],
         ],
         

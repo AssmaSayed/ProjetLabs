@@ -19,6 +19,10 @@
 					</div>
 				</div>
 				@endforeach
+				<!-- Pagination -->
+				<div class="page-pagination">
+					{{$dbServicesServices->fragment('services')->links('vendor.pagination.bootstrap-4')}}
+				</div>
 
 			<div class="text-center">
 				<a href="" class="site-btn">Browse</a>
